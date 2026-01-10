@@ -1,11 +1,8 @@
-import { Link } from "react-router-dom";
-
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-6 py-16">
 
-        {/* Top Section */}
         <div className="grid md:grid-cols-4 gap-10">
 
           {/* About */}
@@ -25,11 +22,11 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/" className="hover:text-green-400">Home</Link></li>
-              <li><Link to="/about" className="hover:text-green-400">About Us</Link></li>
-              <li><Link to="/programs" className="hover:text-green-400">Programs</Link></li>
-              <li><Link to="/impact" className="hover:text-green-400">Impact</Link></li>
-              <li><Link to="/join" className="hover:text-green-400">Join Us</Link></li>
+              <li><a href="#home" className="hover:text-green-400">Home</a></li>
+              <li><a href="#about" className="hover:text-green-400">About Us</a></li>
+              <li><a href="#programs" className="hover:text-green-400">Programs</a></li>
+              <li><a href="#impact" className="hover:text-green-400">Impact</a></li>
+              <li><a href="#gallery" className="hover:text-green-400">Gallery</a></li>
             </ul>
           </div>
 
@@ -53,27 +50,15 @@ export default function Footer() {
               Contact Us
             </h4>
             <ul className="space-y-3 text-sm">
-              <li>
-                📍 Kerala, India
-              </li>
-              <li>
-                📧 info@mahilavikassamaj.org
-              </li>
-              <li>
-                📞 +91 9XXXXXXXXX
-              </li>
+              <li>📍 Kerala, India</li>
+              <li>📧 mahilavikassamaj@gmail.com</li>
+              <li>📞 +91 9567866487</li>
             </ul>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-700 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between text-sm">
-          <p>
-            © {new Date().getFullYear()} Mahila Vikas Samaj. All rights reserved.
-          </p>
-          <p className="mt-2 md:mt-0">
-            Designed with ❤️ for women empowerment
-          </p>
+        <div className="border-t border-gray-700 mt-12 pt-6 text-sm text-center">
+          © {new Date().getFullYear()} Mahila Vikas Samaj. All rights reserved.
         </div>
 
       </div>

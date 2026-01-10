@@ -1,25 +1,35 @@
-import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import "./index.css";
 import { Hero } from "./components/Hero";
 import About from "./components/About";
 import Programs from "./components/Programs";
+import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <About />
+
+      {/* Sections */}
+      <section id="home">
+        <Hero />
+      </section>
+
+      <section id="about">
+        <About />
+      </section>
+
+      <section id="programs">
+        <Programs />
+      </section>
+
+      <section id="gallery">
+        <Gallery />
+      </section>
+
+     
+
       <Footer />
-      <Routes>
-        <Route path="/" element={<h1>Home Page</h1>} />
-        <Route path="/about" element={<h1>About Page</h1>} />
-        <Route path="/programs" element={<h1>Programs Page</h1>} />
-        <Route path="/impact" element={<h1>Impact Page</h1>} />
-        <Route path="/join" element={<h1>Join Us Page</h1>} />
-      </Routes>
     </>
   );
 }
