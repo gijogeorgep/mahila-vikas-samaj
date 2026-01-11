@@ -1,6 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-
+import logo from "../assets/logo_mahila_vikas.png";
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -19,7 +19,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#home" className="flex items-center gap-4 group">
           <img
-            src="logo_mahila_vikas.png"
+            src={logo}
             alt="Mahila Vikas Samaj Logo"
             className="w-16 h-16 object-contain group-hover:scale-110 transition-transform duration-300"
           />
