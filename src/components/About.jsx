@@ -162,14 +162,14 @@ export default function About() {
             — strengthening families, communities, and the future of Kerala.
           </p>
 
-          <div className="flex justify-center gap-4 flex-wrap">
+          {/* <div className="flex justify-center gap-4 flex-wrap">
             <button className="bg-green-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-800 transition">
               Partner With Us
             </button>
             <button className="border border-green-700 text-green-700 px-8 py-3 rounded-full font-semibold hover:bg-green-50 transition">
               Volunteer
             </button>
-          </div>
+          </div> */}
         </div>
 
       </div>
