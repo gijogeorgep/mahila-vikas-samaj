@@ -10,8 +10,23 @@ import img7 from "../assets/img7.jpeg";
 import img8 from "../assets/img8.jpeg";
 import img9 from "../assets/img9.jpeg";
 import img10 from "../assets/img10.jpeg";
+import img11 from "../assets/img11.jpeg";  
+import img22 from "../assets/img22.jpeg";
+import img12 from "../assets/img12.jpeg";
+import img13 from "../assets/img13.jpeg";
+import img14 from "../assets/img14.jpeg";
+import img15 from "../assets/img15.jpeg";
+import img16 from "../assets/img16.jpeg";
+import img17 from "../assets/img17.jpeg";
+import img18 from "../assets/img18.jpeg";
+import img19 from "../assets/img19.jpeg";
+import img20 from "../assets/img20.jpeg";
+import img21 from "../assets/img21.jpeg";
+import img23 from "../assets/img23.jpeg";
+import img24 from "../assets/img24.jpeg";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img22, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21,img23, img24];
 
 export default function Gallery() {
   const [selectedImg, setSelectedImg] = useState(null);

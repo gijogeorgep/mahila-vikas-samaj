@@ -1,3 +1,5 @@
+import React from "react";
+import img22 from "../assets/img22.jpeg";
 export default function About() {
   return (
     <section className="bg-gray-50">
@@ -80,6 +82,17 @@ export default function About() {
             </ul>
           </div>
         </div>
+
+       <div className="w-full my-14 flex justify-center">
+  <div className="w-full max-w-6xl rounded-3xl overflow-hidden shadow-sm">
+    <img
+      src={img22}
+      alt="About Mahila Vikas Samaj"
+      className="w-full h-[320px] md:h-[420px] object-cover object-center"
+    />
+  </div>
+</div>
+
 
         {/* Core Values */}
         <div className="bg-white rounded-3xl p-12 shadow-sm">

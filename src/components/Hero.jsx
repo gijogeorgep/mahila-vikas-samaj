@@ -33,13 +33,7 @@ export const Hero = () => {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <a
-              href="#join"
-              className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-full font-semibold hover:from-green-700 hover:to-green-800 transition shadow-lg hover:scale-105"
-            >
-              Join Our Mission
-            </a>
-
+       
             <a
               href="#about"
               className="border border-green-300 text-green-200 px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition"
