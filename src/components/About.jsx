@@ -1,5 +1,6 @@
 import React from "react";
 import img22 from "../assets/img22.jpeg";
+import newscutting from "../assets/newscuttings.jpeg";
 export default function About() {
   return (
     <section className="bg-gray-50">
@@ -83,16 +84,29 @@ export default function About() {
           </div>
         </div>
 
-       <div className="w-full my-14 flex justify-center">
-  <div className="w-full max-w-6xl rounded-3xl overflow-hidden shadow-sm">
-    <img
-      src={img22}
-      alt="About Mahila Vikas Samaj"
-      className="w-full h-[320px] md:h-[420px] object-cover object-center"
-    />
+  <div className="w-full my-16 flex justify-center">
+  <div className="max-w-6xl w-full grid md:grid-cols-2 gap-6">
+
+    {/* Activity Image */}
+    <div className="group rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fadeIn">
+      <img
+        src={img22}
+        alt="Mahila Vikas Samaj activity"
+        className="w-full h-[320px] md:h-[420px] object-cover transform transition duration-700 group-hover:scale-110"
+      />
+    </div>
+
+    {/* News Cutting — full visible */}
+    <div className="group rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fadeIn delay-150 bg-white flex items-center justify-center">
+      <img
+        src={newscutting}
+        alt="News coverage"
+        className="w-full h-[320px] md:h-[420px] object-contain transform transition duration-700 group-hover:scale-105"
+      />
+    </div>
+
   </div>
 </div>
-
 
         {/* Core Values */}
         <div className="bg-white rounded-3xl p-12 shadow-sm">

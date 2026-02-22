@@ -4,32 +4,32 @@ const programs = [
   {
     title: "Women Entrepreneurship",
     desc: "Supporting women to start and sustain small businesses through training, mentorship, and access to resources.",
-    icon: "💼",
+    
   },
   {
     title: "Skill Development",
     desc: "Providing vocational and technical skills to improve employability and income generation.",
-    icon: "🧵",
+   
   },
   {
     title: "Self Help Groups",
     desc: "Strengthening women-led SHGs to promote savings, financial inclusion, and collective growth.",
-    icon: "👩‍👩‍👧",
+    
   },
   {
     title: "Livelihood Support",
     desc: "Enabling sustainable livelihoods through local enterprises and community-based initiatives.",
-    icon: "🌱",
+    
   },
   {
     title: "Financial Literacy",
     desc: "Educating women on savings, credit management, and government welfare schemes.",
-    icon: "📊",
+  
   },
   {
     title: "Leadership Development",
     desc: "Building confidence and leadership skills for active participation in governance and society.",
-    icon: "⭐",
+   
   },
 ];
 
