@@ -26,20 +26,18 @@ export default function EnterpriseBanner() {
     <>
       {/* Backdrop Overlay */}
       <div
-        className={`fixed inset-0 z-[60] bg-black/40 backdrop-blur-md transition-opacity duration-700 ${
-          isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-[60] bg-black/40 backdrop-blur-md transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         onClick={() => setIsClosed(true)}
       ></div>
 
       {/* Centered Banner Content */}
       <div
-        className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[70] w-[95%] max-w-5xl transition-all duration-700 cubic-bezier(0.34, 1.56, 0.64, 1) ${
-          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0 pointer-events-none"
-        }`}
+        className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[70] w-[95%] max-w-5xl transition-all duration-700 cubic-bezier(0.34, 1.56, 0.64, 1) ${isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0 pointer-events-none"
+          }`}
       >
         <div className="bg-white rounded-[2rem] overflow-hidden shadow-[0_32px_64px_rgba(0,0,0,0.2)] flex flex-col lg:flex-row relative">
-          
+
           {/* Close Button */}
           <button
             onClick={() => setIsClosed(true)}
@@ -50,9 +48,9 @@ export default function EnterpriseBanner() {
 
           {/* Left: Image Side */}
           <div className="lg:w-2/5 relative h-48 lg:h-auto overflow-hidden">
-            <img 
-              src={bannerImg} 
-              alt="Women Entrepreneurs" 
+            <img
+              src={bannerImg}
+              alt="Women Entrepreneurs"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-white/10"></div>
@@ -74,9 +72,9 @@ export default function EnterpriseBanner() {
             </div>
 
             <h2 className="text-gray-900 font-extrabold text-3xl lg:text-4xl leading-tight mb-4 tracking-tight">
-              Women Enterprise <br className="hidden lg:block"/> Support Initiative
+              Women Enterprise <br className="hidden lg:block" /> Support Initiative
             </h2>
-            
+
             <p className="text-gray-600 text-base mb-8 leading-relaxed lg:max-w-md">
               Bridging the gap between government policies and grassroots beneficiaries. Empowering rural women through <span className="text-green-700 font-semibold italic">micro-enterprises like cafes & cafeterias</span>.
             </p>

@@ -6,11 +6,11 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", link: "/", isRoute: true },
-    { name: "About", link: "/#about", isRoute: false },
-    { name: "Programs", link: "/#programs", isRoute: false },
-    { name: "Gallery", link: "/#gallery", isRoute: false },
-    { name: "Internship", link: "/internship", isRoute: true },
+    { name: "Home", link: "/" },
+    { name: "About", link: "/#about" },
+    { name: "Programs", link: "/#programs" },
+    { name: "Gallery", link: "/#gallery" },
+    { name: "Internship", link: "/internship" },
   ];
 
   return (
@@ -18,7 +18,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
 
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-4 group">
+        <Link to="/" className="flex items-center gap-4 group">
           <img
             src={logo}
             alt="Mahila Vikas Samaj Logo"
@@ -32,39 +32,28 @@ export default function Navbar() {
               Empowering Women • Transforming Communities
             </p>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
-            item.isRoute ? (
-              <Link
-                key={item.name}
-                to={item.link}
-                className="text-gray-700 font-medium hover:text-green-700 transition-all duration-200 relative group"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
-              </Link>
-            ) : (
-              <a
-                key={item.name}
-                href={item.link}
-                className="text-gray-700 font-medium hover:text-green-700 transition-all duration-200 relative group"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
-              </a>
-            )
+            <Link
+              key={item.name}
+              to={item.link}
+              className="text-gray-700 font-medium hover:text-green-700 transition-all duration-200 relative group"
+            >
+              {item.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
+            </Link>
           ))}
 
           {/* CTA */}
-          <a
-            href="#join"
+          <Link
+            to="/#join"
             className="ml-2 bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105"
           >
             Join Us
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -81,34 +70,23 @@ export default function Navbar() {
         <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg animate-slide-down">
           <div className="px-6 py-4 space-y-3">
             {navItems.map((item) => (
-              item.isRoute ? (
-                <Link
-                  key={item.name}
-                  to={item.link}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-gray-700 font-medium hover:text-green-700 transition-colors py-2"
-                >
-                  {item.name}
-                </Link>
-              ) : (
-                <a
-                  key={item.name}
-                  href={item.link}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-gray-700 font-medium hover:text-green-700 transition-colors py-2"
-                >
-                  {item.name}
-                </a>
-              )
+              <Link
+                key={item.name}
+                to={item.link}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-gray-700 font-medium hover:text-green-700 transition-colors py-2"
+              >
+                {item.name}
+              </Link>
             ))}
 
-            <a
-              href="#join"
+            <Link
+              to="/#join"
               onClick={() => setMobileMenuOpen(false)}
               className="block w-full text-center bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-full font-semibold hover:from-green-700 hover:to-green-800 transition-all mt-4"
             >
               Join Us
-            </a>
+            </Link>
           </div>
         </div>
       )}

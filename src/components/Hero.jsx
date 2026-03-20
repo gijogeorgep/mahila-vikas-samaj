@@ -13,7 +13,7 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-2 gap-12 items-center">
-        
+
         {/* Left Content */}
         <div>
           <p className="text-sm uppercase tracking-widest text-green-300 font-semibold mb-4">

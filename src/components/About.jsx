@@ -158,7 +158,7 @@ export default function About() {
         </div>
 
         {/* Impact Summary */}
-        <div className="bg-white rounded-3xl p-12 shadow-sm">
+        <div id="impact" className="bg-white rounded-3xl p-12 shadow-sm scroll-mt-20">
           <h3 className="text-3xl font-semibold text-green-800 mb-6">
             Our Impact
           </h3>
@@ -180,7 +180,7 @@ export default function About() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center max-w-3xl mx-auto">
+        <div id="join" className="text-center max-w-3xl mx-auto scroll-mt-20">
           <h3 className="text-3xl font-bold text-green-800 mb-4">
             Join Us
           </h3>
