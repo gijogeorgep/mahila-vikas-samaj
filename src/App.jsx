@@ -1,3 +1,4 @@
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import About from "./components/About";
@@ -5,13 +6,11 @@ import Programs from "./components/Programs";
 import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
 import EnterpriseBanner from "./components/EnterpriseBanner";
+import Internship from "./pages/Internship";
 
-function App() {
+function Home() {
   return (
     <>
-      <Navbar />
-
-      {/* Sections */}
       <section id="home">
         <Hero />
       </section>
@@ -27,14 +26,23 @@ function App() {
       <section id="gallery">
         <Gallery />
       </section>
-
-     
-
-      <Footer />
-
+      
       {/* Flagship Programme Banner */}
       <EnterpriseBanner />
     </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/internship" element={<Internship />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

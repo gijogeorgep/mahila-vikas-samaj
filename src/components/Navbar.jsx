@@ -1,15 +1,16 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo_mahila_vikas.png";
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", link: "#home" },
-    { name: "About", link: "#about" },
-    { name: "Programs", link: "#programs" },
-    { name: "Gallery", link: "#gallery" },
-    { name: "Impact", link: "#impact" },
+    { name: "Home", link: "/", isRoute: true },
+    { name: "About", link: "/#about", isRoute: false },
+    { name: "Programs", link: "/#programs", isRoute: false },
+    { name: "Gallery", link: "/#gallery", isRoute: false },
+    { name: "Internship", link: "/internship", isRoute: true },
   ];
 
   return (
@@ -36,14 +37,25 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.link}
-              className="text-gray-700 font-medium hover:text-green-700 transition-all duration-200 relative group"
-            >
-              {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
-            </a>
+            item.isRoute ? (
+              <Link
+                key={item.name}
+                to={item.link}
+                className="text-gray-700 font-medium hover:text-green-700 transition-all duration-200 relative group"
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
+              </Link>
+            ) : (
+              <a
+                key={item.name}
+                href={item.link}
+                className="text-gray-700 font-medium hover:text-green-700 transition-all duration-200 relative group"
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-600 to-green-400 group-hover:w-full transition-all duration-300"></span>
+              </a>
+            )
           ))}
 
           {/* CTA */}
@@ -69,14 +81,25 @@ export default function Navbar() {
         <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg animate-slide-down">
           <div className="px-6 py-4 space-y-3">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.link}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-gray-700 font-medium hover:text-green-700 transition-colors py-2"
-              >
-                {item.name}
-              </a>
+              item.isRoute ? (
+                <Link
+                  key={item.name}
+                  to={item.link}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-gray-700 font-medium hover:text-green-700 transition-colors py-2"
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.link}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-gray-700 font-medium hover:text-green-700 transition-colors py-2"
+                >
+                  {item.name}
+                </a>
+              )
             ))}
 
             <a
