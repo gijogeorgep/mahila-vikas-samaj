@@ -33,7 +33,14 @@ export const Hero = () => {
           </p>
 
           <div className="flex flex-wrap gap-4">
-       
+            <a
+              href="https://forms.gle/Ft3XLFztBZGoXvKc8" // USER: Please update with actual Google Form link
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-600 text-white px-8 py-4 rounded-full font-bold hover:bg-green-700 transition shadow-lg shadow-green-900/20 active:scale-95 transition-all"
+            >
+              Apply Internship
+            </a>
             <a
               href="#about"
               className="border border-green-300 text-green-200 px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition"

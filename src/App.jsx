@@ -4,6 +4,7 @@ import About from "./components/About";
 import Programs from "./components/Programs";
 import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
+import EnterpriseBanner from "./components/EnterpriseBanner";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
      
 
       <Footer />
+
+      {/* Flagship Programme Banner */}
+      <EnterpriseBanner />
     </>
   );
 }
