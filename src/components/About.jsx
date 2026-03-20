@@ -96,6 +96,7 @@ export default function About() {
       />
     </div>
 
+
     {/* News Cutting — full visible */}
     <div className="group rounded-3xl overflow-hidden shadow-lg transform transition duration-500 hover:-translate-y-2 hover:shadow-2xl animate-fadeIn delay-150 bg-white flex items-center justify-center">
       <img
