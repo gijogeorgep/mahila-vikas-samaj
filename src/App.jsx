@@ -7,6 +7,7 @@ import Programs from "./components/Programs";
 import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
 import EnterpriseBanner from "./components/EnterpriseBanner";
+import VideoSection from "./components/VideoSection";
 import Internship from "./pages/Internship";
 
 function ScrollToHash() {
@@ -41,6 +42,8 @@ function Home() {
       <section id="programs" className="scroll-mt-20">
         <Programs />
       </section>
+
+      <VideoSection />
 
       <section id="gallery" className="scroll-mt-20">
         <Gallery />

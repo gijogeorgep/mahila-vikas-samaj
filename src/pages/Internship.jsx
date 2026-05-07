@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2, Globe, Users, Briefcase, GraduationCap, Heart } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Globe, Users, Briefcase, GraduationCap, Heart, Play } from 'lucide-react';
 
 const Internship = () => {
   return (
@@ -75,6 +75,38 @@ const Internship = () => {
                 <div className="h-48 bg-gray-100 rounded-2xl overflow-hidden">
                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=600" alt="Coffee Shop" className="w-full h-full object-cover" />
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Highlight Section */}
+      <section className="py-24 bg-green-50/50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-white rounded-[3rem] overflow-hidden shadow-2xl border border-green-100 flex flex-col lg:flex-row">
+            <div className="lg:w-3/5 relative aspect-video lg:aspect-auto">
+              <video 
+                controls 
+                className="w-full h-full object-cover"
+                preload="metadata"
+              >
+                <source src="/video_internship.MOV#t=0.1" type="video/quicktime" />
+                <source src="/video_internship.MOV#t=0.1" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div className="lg:w-2/5 p-12 flex flex-col justify-center">
+              <span className="text-green-600 font-bold tracking-widest uppercase text-sm mb-4">Programme Highlight</span>
+              <h2 className="text-3xl font-bold mb-6">Our Flagship Internship in Action</h2>
+              <p className="text-gray-600 text-lg mb-8">
+                Watch how our interns engage with the community and help realize the dream of women-led enterprises at the grassroots level.
+              </p>
+              <div className="flex items-center gap-4 text-green-700 font-semibold">
+                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                  <Play size={20} />
+                </div>
+                <span>Experience the Impact</span>
               </div>
             </div>
           </div>

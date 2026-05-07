@@ -33,7 +33,7 @@ import img28 from "../assets/img28.jpeg";
 
 const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img22, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21,img23, img24, img25, img26, img27, img28];
 
-export default function Gallery() {
+const Gallery = () => {
   const [selectedImg, setSelectedImg] = useState(null);
 
   return (
@@ -80,4 +80,7 @@ export default function Gallery() {
       )}
     </section>
   );
-}
+};
+
+export default Gallery;
+

@@ -1,7 +1,7 @@
 import React from "react";
 import img22 from "../assets/img22.jpeg";
 import newscutting from "../assets/newscuttings.jpeg";
-export default function About() {
+const About = () => {
   return (
     <section className="bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 py-20 space-y-20">
@@ -203,4 +203,6 @@ export default function About() {
       </div>
     </section>
   );
-}
+};
+
+export default About;

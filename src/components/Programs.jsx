@@ -33,7 +33,7 @@ const programs = [
   },
 ];
 
-export default function Programs() {
+const Programs = () => {
   return (
     <section className="w-full bg-white py-20">
       <div className="max-w-7xl mx-auto px-6">
@@ -75,4 +75,7 @@ export default function Programs() {
       </div>
     </section>
   );
-}
+};
+
+export default Programs;
+
