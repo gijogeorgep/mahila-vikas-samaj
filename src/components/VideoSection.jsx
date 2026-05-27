@@ -7,13 +7,22 @@ const VideoSection = () => {
       title: "Empowering Rural Communities",
       src: "/video1.mp4",
       poster: "/video1_poster.png",
-      description: "Witness the impact of our grassroots initiatives in rural Kerala."
+      description: "Witness the impact of our grassroots initiatives in rural Kerala.",
+      type: "video/mp4"
     },
     {
       title: "Women Entrepreneurship in Action",
       src: "/video2.mp4",
       poster: "/video2_poster.png",
-      description: "How Mahila Vikas Samaj is transforming lives through local enterprises."
+      description: "How Mahila Vikas Samaj is transforming lives through local enterprises.",
+      type: "video/mp4"
+    },
+    {
+      title: "Our Flagship Internship Programme",
+      src: "/video_internship.MOV",
+      poster: null,
+      description: "See our interns in action — bridging the gap between Panchayat schemes and rural women entrepreneurs.",
+      type: "video/quicktime"
     }
   ];
 
@@ -32,17 +41,20 @@ const VideoSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {videos.map((video, index) => (
             <div key={index} className="group relative">
               <div className="relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-[1.02] bg-gray-900">
                 <video 
                   controls 
                   className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                  poster={video.poster}
+                  poster={video.poster || undefined}
                   preload="metadata"
                 >
-                  <source src={video.src} type="video/mp4" />
+                  <source src={video.src} type={video.type} />
+                  {video.type === "video/quicktime" && (
+                    <source src={video.src} type="video/mp4" />
+                  )}
                   Your browser does not support the video tag.
                 </video>
                 
