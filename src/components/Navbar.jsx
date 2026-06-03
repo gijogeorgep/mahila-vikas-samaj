@@ -1,4 +1,4 @@
-import { Menu, X } from "lucide-react";
+import { Heart, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo_mahila_vikas.png";
@@ -49,10 +49,11 @@ const Navbar = () => {
 
           {/* CTA */}
           <Link
-            to="/#join"
-            className="ml-2 bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105"
+            to="/donate"
+            className="ml-2 inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105"
           >
-            Join Us
+            <Heart size={16} fill="currentColor" />
+            Donate
           </Link>
         </div>
 
@@ -60,36 +61,80 @@ const Navbar = () => {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="lg:hidden p-2 text-gray-700 hover:text-green-700 transition-colors"
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+          <Menu size={26} />
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg animate-slide-down">
-          <div className="px-6 py-4 space-y-3">
+      {/* Mobile Side Menu */}
+      <div
+        className={`lg:hidden fixed inset-0 z-50 transition-all duration-300 ${
+          mobileMenuOpen ? "visible" : "invisible"
+        }`}
+      >
+        <button
+          type="button"
+          aria-label="Close menu"
+          onClick={() => setMobileMenuOpen(false)}
+          className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${
+            mobileMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
+        />
+
+        <aside
+          className={`absolute left-0 top-0 h-screen w-[82vw] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-out ${
+            mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4">
+            <div className="flex items-center gap-3">
+              <img
+                src={logo}
+                alt="Mahila Vikas Samaj Logo"
+                className="h-12 w-12 object-contain"
+              />
+              <div>
+                <p className="font-bold text-gray-900 leading-tight">
+                  Mahila Vikas Samaj
+                </p>
+                <p className="text-xs text-gray-500">Menu</p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              className="rounded-full p-2 text-gray-700 hover:bg-gray-100 hover:text-green-700 transition-colors"
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          <div className="px-6 py-6 space-y-3">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.link}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-gray-700 font-medium hover:text-green-700 transition-colors py-2"
+                className="block rounded-2xl px-4 py-3 text-gray-700 font-semibold hover:bg-green-50 hover:text-green-700 transition-colors"
               >
                 {item.name}
               </Link>
             ))}
 
             <Link
-              to="/#join"
+              to="/donate"
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-full font-semibold hover:from-green-700 hover:to-green-800 transition-all mt-4"
+              className="flex w-full items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-full font-semibold hover:from-green-700 hover:to-green-800 transition-all mt-4"
             >
-              Join Us
+              <Heart size={18} fill="currentColor" />
+              Donate
             </Link>
           </div>
-        </div>
-      )}
+        </aside>
+      </div>
 
     </nav>
   );

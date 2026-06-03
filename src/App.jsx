@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import EnterpriseBanner from "./components/EnterpriseBanner";
 import VideoSection from "./components/VideoSection";
 import Internship from "./pages/Internship";
+import Donate from "./pages/Donate";
 
 function ScrollToHash() {
   const { hash } = useLocation();
@@ -63,6 +64,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/internship" element={<Internship />} />
+        <Route path="/donate" element={<Donate />} />
       </Routes>
       <Footer />
     </Router>

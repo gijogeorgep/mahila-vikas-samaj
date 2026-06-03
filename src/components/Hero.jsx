@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -69,6 +70,12 @@ export const Hero = () => {
               <span className="relative z-10">Apply Internship</span>
               <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             </a>
+            <Link
+              to="/donate"
+              className="bg-white text-green-800 px-10 py-4 rounded-full font-bold transition-all hover:bg-green-50 shadow-xl shadow-green-900/30 hover:-translate-y-1 active:scale-95"
+            >
+              Donate
+            </Link>
             <a
               href="#about"
               className="backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full font-semibold hover:bg-white/10 transition-all hover:border-white/50 active:scale-95"
