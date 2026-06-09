@@ -30,12 +30,45 @@ import img25 from "../assets/img25.jpeg";
 import img26 from "../assets/img26.jpeg";
 import img27 from "../assets/img27.jpeg";
 import img28 from "../assets/img28.jpeg";
-
+import img29 from "../assets/img29.jpeg";
+import img30 from "../assets/img30.jpeg";
+import img31 from "../assets/img31.jpeg";
+import img32 from "../assets/img32.jpeg";
+import img33 from "../assets/img33.jpeg";
 const images = [
-  img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
-  img11, img22, img12, img13, img14, img15, img16, img17, img18,
-  img19, img20, img21, img23, img24, img25, img26, img27, img28
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img22,
+  img12,
+  img13,
+  img14,
+  img15,
+  img16,
+  img17,
+  img18,
+  img19,
+  img20,
+  img21,
+  img23,
+  img24,
+  img25,
+  img26,
+  img27,
+  img28,
 ];
+
+const internshipImages = [img29, img30, img31, img33];
+
+const allImages = [...images, ...internshipImages];
 
 const Gallery = () => {
   const [selectedIdx, setSelectedIdx] = useState(null);
@@ -54,12 +87,12 @@ const Gallery = () => {
 
   const handleNext = (e) => {
     e?.stopPropagation();
-    setSelectedIdx((prev) => (prev + 1) % images.length);
+    setSelectedIdx((prev) => (prev + 1) % allImages.length);
   };
 
   const handlePrev = (e) => {
     e?.stopPropagation();
-    setSelectedIdx((prev) => (prev - 1 + images.length) % images.length);
+    setSelectedIdx((prev) => (prev - 1 + allImages.length) % allImages.length);
   };
 
   const containerVariants = {
@@ -141,7 +174,9 @@ const Gallery = () => {
                   whileHover={{ y: 0, opacity: 1 }}
                   className="flex items-center justify-between"
                 >
-                  <span className="text-white font-medium text-sm">View Moment</span>
+                  <span className="text-white font-medium text-sm">
+                    View Moment
+                  </span>
                   <div className="bg-white/20 backdrop-blur-md p-2 rounded-full">
                     <Maximize2 size={18} className="text-white" />
                   </div>
@@ -149,6 +184,70 @@ const Gallery = () => {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+      </div>
+
+      {/* Internship Showcase Section */}
+      <div className="max-w-7xl mx-auto px-6 mt-24">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-green-600 bg-green-50 border border-green-200 px-4 py-1.5 rounded-full mb-4">
+            Internship Programme
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-800 to-green-600 bg-clip-text text-transparent">
+            Learning by Doing
+          </h2>
+          <div className="w-16 h-1 bg-gradient-to-r from-green-600 to-green-400 mx-auto rounded-full mb-6" />
+          <p className="text-gray-600 max-w-xl mx-auto text-base leading-relaxed">
+            A look at our internship initiatives — where young changemakers
+            engage directly with communities to turn ideas into real impact.
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+        >
+          {internshipImages.map((img, index) => {
+            const globalIdx = images.length + index;
+            return (
+              <motion.div
+                key={globalIdx}
+                variants={itemVariants}
+                layoutId={`img-${globalIdx}`}
+                onClick={() => setSelectedIdx(globalIdx)}
+                className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 bg-white aspect-[4/3]"
+              >
+                <motion.img
+                  src={img}
+                  alt={`Internship ${index + 1}`}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                  <motion.div
+                    initial={{ y: 10, opacity: 0 }}
+                    whileHover={{ y: 0, opacity: 1 }}
+                    className="flex items-center justify-between"
+                  >
+                    <span className="text-white font-medium text-sm">
+                      View Moment
+                    </span>
+                    <div className="bg-white/20 backdrop-blur-md p-2 rounded-full">
+                      <Maximize2 size={16} className="text-white" />
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
 
@@ -186,7 +285,7 @@ const Gallery = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <img
-                  src={images[selectedIdx]}
+                  src={allImages[selectedIdx]}
                   alt="Gallery Full View"
                   className="max-h-[85vh] w-auto rounded-xl shadow-2xl pointer-events-auto border-2 border-white/10"
                 />
@@ -194,7 +293,7 @@ const Gallery = () => {
                 {/* Image Info / Counter */}
                 <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4 text-white/70 text-sm font-medium">
                   <span className="bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-md border border-white/5">
-                    {selectedIdx + 1} / {images.length}
+                    {selectedIdx + 1} / {allImages.length}
                   </span>
                 </div>
               </motion.div>
@@ -215,5 +314,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-
-
