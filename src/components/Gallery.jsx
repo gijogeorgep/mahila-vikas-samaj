@@ -35,6 +35,8 @@ import img30 from "../assets/img30.jpeg";
 import img31 from "../assets/img31.jpeg";
 import img32 from "../assets/img32.jpeg";
 import img33 from "../assets/img33.jpeg";
+import img34 from "../assets/img34.jpeg";
+import img35 from "../assets/img35.jpeg";
 const images = [
   img1,
   img2,
@@ -64,6 +66,8 @@ const images = [
   img26,
   img27,
   img28,
+  img34,
+  img35,
 ];
 
 const internshipImages = [img29, img30, img31, img33];
