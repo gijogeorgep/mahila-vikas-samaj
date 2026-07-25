@@ -1,18 +1,21 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import img7 from "../assets/img7.jpeg";
 
 export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative w-full h-[calc(100svh-88px)] min-h-[520px] bg-cover bg-center flex items-center overflow-hidden"
+      className="relative w-full h-[calc(100svh-88px)] min-h-[520px] bg-cover bg-[position:40%_center] sm:bg-center flex items-center overflow-hidden"
       style={{
-        backgroundImage:
-          "url('https://i.pinimg.com/736x/20/b5/ca/20b5caabc0ef3bdb9a4c2b65ddc0e46b.jpg')",
+        backgroundImage: `url(${img7})`,
       }}
     >
+      {/* Brand Green Tint overlay for blending */}
+      <div className="absolute inset-0 bg-green-900/25 mix-blend-multiply"></div>
+
       {/* Dark Overlay with Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/45 md:bg-gradient-to-r md:from-black/90 md:via-black/55 md:to-transparent"></div>
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 py-6 md:py-10 grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full">
@@ -22,6 +25,7 @@ export const Hero = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="font-montserrat"
         >
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -36,7 +40,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] mb-4 md:mb-6"
+            className="text-4xl sm:text-[2.5rem] md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-4 md:mb-6"
           >
             Building Stronger <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-200">
@@ -48,7 +52,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-gray-300 text-base sm:text-lg md:text-xl mb-6 md:mb-9 max-w-xl leading-relaxed"
+            className="text-gray-300 text-base sm:text-base md:text-lg mb-6 md:mb-9 max-w-xl leading-relaxed"
           >
             Mahila Vikas Samaj empowers women at the grassroots through
             entrepreneurship, skill development, and sustainable livelihood
