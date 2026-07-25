@@ -8,8 +8,10 @@ import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
 import EnterpriseBanner from "./components/EnterpriseBanner";
 import VideoSection from "./components/VideoSection";
+import OrientationSection from "./components/OrientationSection";
 import Internship from "./pages/Internship";
 import Donate from "./pages/Donate";
+import GalleryPage from "./pages/GalleryPage";
 
 function ScrollToHash() {
   const { hash } = useLocation();
@@ -46,8 +48,12 @@ function Home() {
 
       <VideoSection />
 
+      <section id="orientation" className="scroll-mt-20">
+        <OrientationSection />
+      </section>
+
       <section id="gallery" className="scroll-mt-20">
-        <Gallery />
+        <Gallery preview={true} />
       </section>
       
       {/* Flagship Programme Banner */}
@@ -65,6 +71,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/internship" element={<Internship />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/gallery" element={<GalleryPage />} />
       </Routes>
       <Footer />
     </Router>

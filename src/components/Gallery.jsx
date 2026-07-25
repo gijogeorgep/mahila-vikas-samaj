@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
@@ -37,6 +38,8 @@ import img32 from "../assets/img32.jpeg";
 import img33 from "../assets/img33.jpeg";
 import img34 from "../assets/img34.jpeg";
 import img35 from "../assets/img35.jpeg";
+import img36 from "../assets/img36.jpeg";
+import img37 from "../assets/img37.jpeg";
 const images = [
   img1,
   img2,
@@ -68,14 +71,18 @@ const images = [
   img28,
   img34,
   img35,
+  img36,
+  img37,
+
 ];
 
 const internshipImages = [img29, img30, img31, img33];
 
-const allImages = [...images, ...internshipImages];
-
-const Gallery = () => {
+const Gallery = ({ preview = false }) => {
   const [selectedIdx, setSelectedIdx] = useState(null);
+
+  const displayImages = preview ? images.slice(0, 8) : images;
+  const allImages = preview ? displayImages : [...images, ...internshipImages];
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -156,7 +163,7 @@ const Gallery = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4"
         >
-          {images.map((img, index) => (
+          {displayImages.map((img, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
@@ -189,71 +196,93 @@ const Gallery = () => {
             </motion.div>
           ))}
         </motion.div>
-      </div>
 
-      {/* Internship Showcase Section */}
-      <div className="max-w-7xl mx-auto px-6 mt-24">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-green-600 bg-green-50 border border-green-200 px-4 py-1.5 rounded-full mb-4">
-            Internship Programme
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-800 to-green-600 bg-clip-text text-transparent">
-            Learning by Doing
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-green-600 to-green-400 mx-auto rounded-full mb-6" />
-          <p className="text-gray-600 max-w-xl mx-auto text-base leading-relaxed">
-            A look at our internship initiatives — where young changemakers
-            engage directly with communities to turn ideas into real impact.
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
-        >
-          {internshipImages.map((img, index) => {
-            const globalIdx = images.length + index;
-            return (
+        {/* Explore More Button for Homepage Preview */}
+        {preview && (
+          <div className="text-center mt-16">
+            <Link
+              to="/gallery"
+              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-green-600 to-green-700 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl shadow-green-950/20 hover:from-green-700 hover:to-green-800 transition-all hover:-translate-y-1 active:scale-95 overflow-hidden"
+            >
+              <span className="relative z-10">Explore Full Gallery</span>
               <motion.div
-                key={globalIdx}
-                variants={itemVariants}
-                layoutId={`img-${globalIdx}`}
-                onClick={() => setSelectedIdx(globalIdx)}
-                className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 bg-white aspect-[4/3]"
+                animate={{ x: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
+                className="relative z-10"
               >
-                <motion.img
-                  src={img}
-                  alt={`Internship ${index + 1}`}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                  <motion.div
-                    initial={{ y: 10, opacity: 0 }}
-                    whileHover={{ y: 0, opacity: 1 }}
-                    className="flex items-center justify-between"
-                  >
-                    <span className="text-white font-medium text-sm">
-                      View Moment
-                    </span>
-                    <div className="bg-white/20 backdrop-blur-md p-2 rounded-full">
-                      <Maximize2 size={16} className="text-white" />
-                    </div>
-                  </motion.div>
-                </div>
+                <ChevronRight size={20} />
               </motion.div>
-            );
-          })}
-        </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1.2s]" />
+            </Link>
+          </div>
+        )}
       </div>
+
+      {/* Internship Showcase Section (Only on Full Gallery Page) */}
+      {!preview && (
+        <div className="max-w-7xl mx-auto px-6 mt-24">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-green-600 bg-green-50 border border-green-200 px-4 py-1.5 rounded-full mb-4">
+              Internship Programme
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-800 to-green-600 bg-clip-text text-transparent">
+              Learning by Doing
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-green-600 to-green-400 mx-auto rounded-full mb-6" />
+            <p className="text-gray-600 max-w-xl mx-auto text-base leading-relaxed">
+              A look at our internship initiatives — where young changemakers
+              engage directly with communities to turn ideas into real impact.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          >
+            {internshipImages.map((img, index) => {
+              const globalIdx = images.length + index;
+              return (
+                <motion.div
+                  key={globalIdx}
+                  variants={itemVariants}
+                  layoutId={`img-${globalIdx}`}
+                  onClick={() => setSelectedIdx(globalIdx)}
+                  className="relative group cursor-pointer rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 bg-white aspect-[4/3]"
+                >
+                  <motion.img
+                    src={img}
+                    alt={`Internship ${index + 1}`}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                    <motion.div
+                      initial={{ y: 10, opacity: 0 }}
+                      whileHover={{ y: 0, opacity: 1 }}
+                      className="flex items-center justify-between"
+                    >
+                      <span className="text-white font-medium text-sm">
+                        View Moment
+                      </span>
+                      <div className="bg-white/20 backdrop-blur-md p-2 rounded-full">
+                        <Maximize2 size={16} className="text-white" />
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      )}
 
       {/* Enhanced Lightbox */}
       <AnimatePresence>
