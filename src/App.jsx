@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import EnterpriseBanner from "./components/EnterpriseBanner";
 import VideoSection from "./components/VideoSection";
 import OrientationSection from "./components/OrientationSection";
+import TribeAwarenessSection from "./components/TribeAwarenessSection";
 import Internship from "./pages/Internship";
 import Donate from "./pages/Donate";
 import GalleryPage from "./pages/GalleryPage";
@@ -51,6 +52,8 @@ function Home() {
       <section id="orientation" className="scroll-mt-20">
         <OrientationSection />
       </section>
+
+      <TribeAwarenessSection />
 
       <section id="gallery" className="scroll-mt-20">
         <Gallery preview={true} />
